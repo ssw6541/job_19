@@ -16,3 +16,10 @@ python -m pip install requests
 
 https://pypi.org/project/requests/
 
+7. beautifulsoup 설치
+pip install beautifulsoup4
+
+https://pypi.org/project/beautifulsoup4/
+
+
+
