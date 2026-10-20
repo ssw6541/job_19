@@ -1,25 +1,31 @@
 1. 문서 -> 작업폴더(19_job)
 
+
 2. python -m venv .venv (가상환경) -> 서버 컴퓨터에 필요한 라이브러리만 설치하기 위해서
+
 
 3. 가상환경으로 들어가는 명령어
 .venv\scripts\activate
 
+
 4. 가상환경에 설치된 환경설정 확인하는법
 pip
+
 
 5. 가상환경 비활성화 명령어
 deactivate
 
-6. python requests 설치 명령어
-python -m pip install requests
+
+6. python requests 설치 명령어 - 외부 라이브러리 requests 설치
+pip install requests
 
 https://pypi.org/project/requests/
+
 
 7. beautifulsoup 설치
 pip install beautifulsoup4
 
 https://pypi.org/project/beautifulsoup4/
 
-
+pip install requests - 외부 라이브러리 requests 설치
 
