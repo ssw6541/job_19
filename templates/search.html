@@ -19,11 +19,13 @@
       <tbody>
         {%for i, job in jobs%}
         <tr>
-          <th>{{i}}</th>
-          <th>{{job['company']}}</th>
-          <th>{{job['title']}}</th>
-          <th>{{job['location']}}</th>
-          <th>{{job['hyperlink']}}</th>
+          <td>{{i}}</td>
+          <td>{{job['company']}}</td>
+          <td>{{job['title']}}</td>
+          <td>{{job['location']}}</td>
+          <td>
+            <a href='{{job['hyperlink']}}' target='_blank'>상세보기</a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
