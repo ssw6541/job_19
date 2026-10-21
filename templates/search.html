@@ -6,6 +6,29 @@
   <body>
     <h1>{{ keyword }} 잡서치 결과 페이지입니다.</h1>
 
-    {{ jobs }}
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>순번</th>
+          <th>회사명</th>
+          <th>공고제목</th>
+          <th>회사위치</th>
+          <th>상세보기</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for i, job in jobs%}
+        <tr>
+          <th>{{i}}</th>
+          <th>{{job['company']}}</th>
+          <th>{{job['title']}}</th>
+          <th>{{job['location']}}</th>
+          <th>{{job['hyperlink']}}</th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
 </html>
+
+<!-- 주석처리 명령어 -->

@@ -2,7 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 
 def search_incruit(keyword):
-    pages = 5
+    
+    pages = 1
     jobs = []
 
     for page in range(pages):

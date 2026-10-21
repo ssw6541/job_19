@@ -10,13 +10,8 @@ def home():
 @app.route('/search')
 def search():
     keyword = request.args.get('keyword', '').strip()
-
-    if not keyword:
-        return render_template('search.html', keyword=keyword, jobs=[])
-
     jobs = search_incruit(keyword)
-
-    return render_template('search.html', keyword=keyword, jobs=jobs)
+    return render_template('search.html', keyword=keyword, jobs=enumerate(jobs, start=1))
 
 
 if __name__ == '__main__':
