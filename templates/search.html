@@ -1,36 +1,4 @@
 <!doctype html>
-<html>
-  <head>
-    <title>잡서치 검색 결과</title>
-  </head>
-  <body>
-    <h1>{{ keyword }} 잡서치 결과 페이지입니다.</h1>
-
-    <table border="1" cellpadding="10" cellspacing="0" width="100%">
-      <thead>
-        <tr>
-          <th>순번</th>
-          <th>회사명</th>
-          <th>공고제목</th>
-          <th>회사위치</th>
-          <th>상세보기</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%for i, job in jobs%}
-        <tr>
-          <td>{{i}}</td>
-          <td>{{job['company']}}</td>
-          <td>{{job['title']}}</td>
-          <td>{{job['location']}}</td>
-          <td>
-            <a href='{{job['hyperlink']}}' target='_blank'>상세보기</a>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </body>
-</html>
-
-<!-- 주석처리 명령어 -->
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ keyword or '채용공고' }} 검색 결과 | 잡픽</title><style>
+:root{--navy:#172b4d;--blue:#2878f0;--ink:#172033;--muted:#6d7788;--line:#e4e9f1;--bg:#f6f8fc}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans KR",sans-serif}a{text-decoration:none;color:inherit}.topbar{background:var(--navy);color:#fff}.nav{max-width:1180px;height:72px;margin:auto;padding:0 24px;display:flex;align-items:center;gap:34px}.logo{font-size:25px;font-weight:800;letter-spacing:-1px}.logo span{color:#61a0ff}.nav-links{display:flex;gap:24px;color:#cbd7e9;font-size:14px}.nav-links a:first-child{color:#fff;font-weight:700}.search-head{background:#fff;border-bottom:1px solid var(--line)}.search-inner{max-width:1180px;margin:auto;padding:26px 24px}.search-box{max-width:720px;padding:5px;display:flex;border:1px solid #cad5e5;border-radius:9px}.search-box input{flex:1;min-width:0;border:0;outline:0;padding:12px;font-size:15px}.search-box button{border:0;border-radius:6px;background:var(--blue);color:#fff;padding:0 25px;font-weight:700}.wrap{max-width:1180px;margin:auto;padding:28px 24px 60px}.summary{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.summary h1{font-size:22px;margin:0}.summary h1 strong{color:var(--blue)}.sort{color:var(--muted);font-size:13px}.layout{display:grid;grid-template-columns:220px 1fr;gap:20px}.filter,.job-card{background:#fff;border:1px solid var(--line);border-radius:10px}.filter{height:max-content;padding:20px}.filter h2{font-size:15px;margin:0 0 17px}.filter label{display:block;padding:9px 0;color:#667184;font-size:14px}.filter input{accent-color:var(--blue);margin-right:8px}.jobs{display:grid;gap:10px}.job-card{padding:22px 24px}.company{font-size:13px;color:#687489;margin-bottom:10px}.job-title{display:block;font-size:18px;font-weight:700;margin-bottom:14px}.meta{display:flex;flex-wrap:wrap;gap:8px;color:#687489;font-size:13px}.meta span{padding-right:9px;border-right:1px solid #d9dfe8}.meta span:last-child{border:0}.detail{display:inline-block;margin-top:18px;color:var(--blue);font-size:13px;font-weight:700}.empty{background:#fff;border:1px solid var(--line);border-radius:10px;text-align:center;padding:65px 20px;color:var(--muted)}@media(max-width:700px){.nav{height:60px}.nav-links{display:none}.search-inner,.wrap{padding-left:16px;padding-right:16px}.layout{display:block}.filter{display:none}.summary h1{font-size:19px}.job-card{padding:18px}.job-title{font-size:16px}}
+</style></head><body><header class="topbar"><nav class="nav"><a class="logo" href="/">잡<span>픽</span></a><div class="nav-links"><a href="/">채용공고</a><a href="#">직무 탐색</a><a href="#">커리어 가이드</a></div></nav></header><section class="search-head"><div class="search-inner"><form class="search-box" action="/search" method="get"><input type="text" name="keyword" value="{{ keyword }}" placeholder="직무, 회사명, 키워드를 검색해보세요"><button type="submit">검색</button></form></div></section><main class="wrap"><div class="summary"><h1><strong>{{ keyword or '전체' }}</strong> 검색 결과</h1><span class="sort">최신순 ▾</span></div><div class="layout"><aside class="filter"><h2>검색 조건</h2><label><input type="checkbox">서울·수도권</label><label><input type="checkbox">신입</label><label><input type="checkbox">경력</label><label><input type="checkbox">정규직</label></aside><section class="jobs">{% for i, job in jobs %}<article class="job-card"><div class="company">{{ job['company'] }}</div><a class="job-title" href="{{ job['hyperlink'] }}" target="_blank" rel="noopener">{{ job['title'] }}</a><div class="meta"><span>{{ job['location'] }}</span><span>채용공고</span><span>인크루트</span></div><a class="detail" href="{{ job['hyperlink'] }}" target="_blank" rel="noopener">공고 상세보기 →</a></article>{% else %}<div class="empty">검색 결과가 없습니다.<br>다른 키워드로 다시 검색해보세요.</div>{% endfor %}</section></div></main></body></html>
